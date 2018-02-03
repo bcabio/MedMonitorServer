@@ -29,8 +29,8 @@ def insert():
 def drawer_update():
     print(request.args)
     json_data = dict()
-    json_data['isOpen'] = request.args.get('isOpen')
-    json_data['ts'] = request.args.get('ts')
+    json_data['isOpen'] = request.form.get('isOpen')
+    json_data['ts'] = request.form.get('ts')
     print(json_data)
     doc_cursor = prod.insert_one(json_data)
     doc_id = doc_cursor.inserted_id
