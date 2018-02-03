@@ -25,7 +25,7 @@ def insert():
 	print(doc_id)
 	return "good"
 
-@app.route("/drawer_update", methods=['POST'])
+@app.route("/drawerUpdate", methods=['POST'])
 def drawer_update():
     json_data = request.form['data']
     doc_cursor = prod.insert_one(json_data)
