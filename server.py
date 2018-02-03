@@ -23,3 +23,8 @@ def insert():
 	print(doc_cursor)
 	print(doc_id)
 	return "good"
+
+
+
+if __name__ == "__main__":
+	app.run()
