@@ -27,6 +27,7 @@ def insert():
 
 @app.route("/drawerUpdate", methods=['POST'])
 def drawer_update():
+    print(request.args)
     json_data = dict()
     json_data['isOpen'] = request.args.get('isOpen')
     json_data['ts'] = request.args.get('ts')
