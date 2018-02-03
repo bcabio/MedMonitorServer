@@ -6,6 +6,7 @@ client = MongoClient('mongodb://admin2:admin2@ds121898.mlab.com:21898/mangohacks
 db = client['mangohacks']
 
 test = db['test']
+prod = db['prod']
 
 test_doc = {
 	"author": "aimee"
@@ -24,6 +25,14 @@ def insert():
 	print(doc_id)
 	return "good"
 
+@app.route("/drawer_update", methods=['POST'])
+def drawer_update():
+    json_data = request.form['data']
+    doc_cursor = prod.insert_one(json_data)
+    doc_id = doc_cursor.inserted_id
+    print(doc_cursor)
+    print(doc_id)
+    return "good"
 
 
 if __name__ == "__main__":
