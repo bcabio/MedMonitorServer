@@ -1,5 +1,6 @@
-from flask import Flask, json, request
+from flask import Flask, request
 from pymongo import MongoClient
+import json
 
 app = Flask(__name__)
 client = MongoClient('mongodb://admin2:admin2@ds121898.mlab.com:21898/mangohacks')
