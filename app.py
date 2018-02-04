@@ -8,6 +8,7 @@ db = client['mangohacks']
 test = db['test']
 med_logs = db['med_logs']
 drawer_logs = db['drawer_logs']
+my_meds = db['my_meds']
 
 test_doc = {
 	"author": "aimee"
@@ -42,7 +43,7 @@ def drawer_update():
 
 
 @app.route("/medicineUsed", methods=['POST'])
-def drawer_update():
+def medicine_update():
     json_data = dict()
     json_data['medicineName'] = request.form.get('medicineName')
     json_data['numUsed'] = request.form.get('numUsed')
@@ -55,5 +56,9 @@ def drawer_update():
     print(doc_id)
     return "good"
 
+@app.route("/userMeds", methods=["GET"])
+def get_user_meds():
+    my_meds_list = my_meds.find_one()
+    return jsonify(str(my_meds_list))    
 if __name__ == "__main__":
 	app.run()
