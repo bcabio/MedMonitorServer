@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, json, request
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ test_doc = {
 @app.route("/")
 def hello():
 	name = test.find_one()
-	return jsonify(str(name))
+	return json.dumps(str(name))
 
 @app.route("/insert")
 def insert():
@@ -59,6 +59,6 @@ def medicine_update():
 @app.route("/userMeds", methods=["GET"])
 def get_user_meds():
     my_meds_list = my_meds.find_one()
-    return jsonify(str(my_meds_list))    
+    return json.dumps(str(my_meds_list))    
 if __name__ == "__main__":
 	app.run()
