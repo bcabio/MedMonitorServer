@@ -42,7 +42,7 @@ def drawer_update():
 
 
 @app.route("/medicineUsed", methods=['POST'])
-def drawer_update():
+def medicine_update():
     json_data = dict()
     json_data['medicineName'] = request.form.get('medicineName')
     json_data['numUsed'] = request.form.get('numUsed')
